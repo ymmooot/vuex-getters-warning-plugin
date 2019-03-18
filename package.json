@@ -1,0 +1,25 @@
+{
+  "name": "vuex-getters-warning-plugin",
+  "version": "1.0.0",
+  "description": "A plugin for Vuex which dumps warning when accessing to non-existent getters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ymmooot/vuex-getters-warning-plugin.git"
+  },
+  "author": "Ryota Yamamoto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ymmooot/vuex-getters-warning-plugin/issues"
+  },
+  "homepage": "https://github.com/ymmooot/vuex-getters-warning-plugin#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.3.4",
+    "jest": "^24.5.0",
+    "vue": "^2.6.9",
+    "vuex": "^3.1.0"
+  }
+}
