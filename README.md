@@ -1,4 +1,8 @@
 # vuex-getters-warning-plugin
+
+[![CircleCI](https://circleci.com/gh/ymmooot/vuex-getters-warning-plugin.svg?style=shield)](https://circleci.com/gh/ymmooot/vuex-getters-warning-plugin)
+[![version](https://img.shields.io/npm/v/vuex-getters-warning-plugin.svg)](https://www.npmjs.com/package/vuex-getters-warning-plugin)
+
 A plugin for Vuex which dumps warning when accessing to non-existent getters.
 
 ## usage
