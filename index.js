@@ -1,9 +1,9 @@
-export default (_options = {}) => {
-  const options = {
+module.exports = (_options = {}) => {
+  const defaultOptions = {
     logger: console.warn,
-    silent: process.env.NODE_ENV === 'production' || false,
-    ..._options,
+    silent: process.env.NODE_ENV === 'production',
   };
+  const options = Object.assign({}, defaultOptions, _options);
 
   if (options.silent) {
     return () => {};

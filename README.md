@@ -64,11 +64,9 @@ default: `console.warn`
 This can prevent installing this plugin.
 
 ```js
-const isReleaseCandidate = ['staging', 'production'].includes(process.env.NODE_ENV);
-
 const store = new Vuex.Store({
   plugins: [getterWarning({
-    silent: isReleaseCandidate,
+    silent: process.env.NODE_ENV === 'production',
   })],
   state: {
     name: 'Alice',
@@ -80,9 +78,8 @@ const store = new Vuex.Store({
   },
 });
 
-// if the environment is 'staging' or 'production'
 const age = vm.$store.getters.age;
-// nothing happens.
+// nothing dumps.
 ```
 
-default: `process.env.NODE_ENV === 'production' || false`
+default: `process.env.NODE_ENV === 'production'`
