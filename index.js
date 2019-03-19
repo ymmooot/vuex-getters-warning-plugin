@@ -1,8 +1,8 @@
-export default _options => {
+export default (_options = {}) => {
   const options = {
     logger: console.warn,
     silent: process.env.NODE_ENV === 'production' || false,
-    ...(_options || {}),
+    ..._options,
   };
 
   if (options.silent) {
