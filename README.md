@@ -37,11 +37,11 @@ const age = vm.$store.getters.age;
 You can specify the logger called on warning. The logger receives the two arguments, a static message from this plugin and the called target key.
 
 ```js
-// even throw an error
+const throwError = (...args) => { throw new Error(args.join(' ')) }
 
 const store = new Vuex.Store({
   plugins: [getterWarning({
-    logger: (...args) => { throw new Error(args.join(' ')) },
+    logger: throwError,
   })],
   state: {
     name: 'Alice',
@@ -66,7 +66,7 @@ This can prevent installing this plugin.
 ```js
 const store = new Vuex.Store({
   plugins: [getterWarning({
-    silent: process.env.NODE_ENV === 'production',
+    silent: process.env.NODE_ENV !== 'development',
   })],
   state: {
     name: 'Alice',
