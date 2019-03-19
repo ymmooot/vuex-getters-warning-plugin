@@ -23,7 +23,7 @@ const store = new Vuex.Store({
 });
 ```
 
-Once registerd it, you will get warning in the console when accessing non-exsistent getters.
+Once registerd it, you will get warning in the console when accessing to non-exsistent getters.
 
 ```js
 const age = vm.$store.getters.age;
