@@ -58,7 +58,7 @@ describe('logging on accessing non-existent getters', () => {
 
   it('can even throw an error', () => {
     const fragileLogger = (...args) => {
-      throw new Error(...args);
+      throw new Error(args.join(':'));
     };
     createStore({ logger: fragileLogger });
     expect(() => {

@@ -5,13 +5,13 @@
 
 A plugin for Vuex which dumps warning when accessing to non-existent getters.
 
-## usage
+## Usage
 
 ```js
 import getterWarning from 'vuex-getters-warning-plugin';
 
 const store = new Vuex.Store({
-  plugins: [getterWarning],
+  plugins: [getterWarning()],
   state: {
     name: 'Alice',
   },
@@ -29,3 +29,60 @@ Once registerd it, you will get warning in the console when accessing non-exsist
 const age = vm.$store.getters.age;
 // A nonexistent getter has been called: age
 ```
+
+## Options
+
+### logger `Function`
+
+You can specify the logger called on warning. The logger receives the two arguments, a static message from this plugin and the called target key.
+
+```js
+// even throw an error
+
+const store = new Vuex.Store({
+  plugins: [getterWarning({
+    logger: (...args) => { throw new Error(args.join(' ')) },
+  })],
+  state: {
+    name: 'Alice',
+  },
+  getters: {
+    nameWithHonorific(state) {
+      return `Ms. ${state.name}`;
+    },
+  },
+});
+
+const age = vm.$store.getters.age;
+// Error: A nonexistent getter has been called: age
+```
+
+default: `console.warn`
+
+### silent `Boolean`
+
+This can prevent installing this plugin.
+
+```js
+const isReleaseCandidate = ['staging', 'production'].includes(process.env.NODE_ENV);
+
+const store = new Vuex.Store({
+  plugins: [getterWarning({
+    silent: isReleaseCandidate,
+  })],
+  state: {
+    name: 'Alice',
+  },
+  getters: {
+    nameWithHonorific(state) {
+      return `Ms. ${state.name}`;
+    },
+  },
+});
+
+// if the environment is 'staging' or 'production'
+const age = vm.$store.getters.age;
+// nothing happens.
+```
+
+default: `process.env.NODE_ENV === 'production' || false`
