@@ -3,7 +3,7 @@
 [![CircleCI](https://circleci.com/gh/ymmooot/vuex-getters-warning-plugin.svg?style=shield)](https://circleci.com/gh/ymmooot/vuex-getters-warning-plugin)
 [![version](https://img.shields.io/npm/v/vuex-getters-warning-plugin.svg)](https://www.npmjs.com/package/vuex-getters-warning-plugin)
 
-A plugin for Vuex which dumps warning when accessing to non-existent getters.
+A plugin for Vuex which dumps warning when accessing non-existent getters.
 
 ## Usage
 
@@ -23,7 +23,7 @@ const store = new Vuex.Store({
 });
 ```
 
-Once registerd it, you will get warning in the console when accessing to non-exsistent getters.
+Once registerd it, you will get warning in the console when accessing non-exsistent getters.
 
 ```js
 const age = vm.$store.getters.age;
